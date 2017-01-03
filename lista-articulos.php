@@ -133,6 +133,11 @@
                             <!-- BLOG LOOP START
                             ============================================= -->
                             <div class="blog-post col-md-8 wow fadeIn">
+                                <?php $articulos = new WP_Query(array(
+                                    'post_type' =>  'post'
+                                ));
+                                if ($articulos->have_posts()) {
+                                    while($articulos->have_posts()) { the_post(); ?>
                                 <article class="post-item">
                                     <div class="post-image">
                                         <a href="articulo.html">
@@ -156,30 +161,9 @@
                                         </div>
                                     </div>
                                 </article>
-
-                                <article class="post-item">
-                                    <div class="post-image">
-                                        <a href="articulo.html">
-                                            <img src="img\blog\blog-img-2.jpg" alt="">
-                                            <div class="overlay dark"></div>
-                                            <span><i class="fa fa-plus"></i></span>
-                                        </a>
-                                    </div>
-                                    <div class="post-content">
-                                        <div class="heading-block">
-                                            <a href="articulo.html"><h3>Titulo de articulo 2</h3></a>
-                                            <div class="post-meta">
-                                                <span class="date">02 August 2015</span>/<span class="author">akmanda</span>/<span class="comments">3 Comentarios</span>
-                                            </div>
-                                        </div>
-                                        <div class="excerpt">
-                                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis prae sentium voluptatum dele niti atque crupti quos dolores et quas. prae sentium voluptatum deleniti atque crupti quos dolores et quas.At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis prae sentium voluptatum dele niti atque crupti quos dolores et quas. prae sentium voluptatum deleniti atque crupti quos dolores et quas...</p>
-                                        </div>
-                                        <div class="button-normal green">
-                                            <a href="articulo.html" class="no-margin-bottom">Leer Más</a>
-                                        </div>
-                                    </div>
-                                </article>
+                                <?php 
+                                    }
+                                } ?>
 
                             <ul class="pagination">
                                 <li><a href="#">1</a></li>
